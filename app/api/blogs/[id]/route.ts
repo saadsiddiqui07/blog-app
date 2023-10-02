@@ -7,7 +7,6 @@ export async function PUT(request: NextRequest, { params }: any) {
   try {
     const { id } = params;
     const { title, content } = await request.json();
-    console.log(title, content)
     await dbConnect();
     await Blog.findByIdAndUpdate(id, { title, content });
     return NextResponse.json(

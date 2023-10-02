@@ -5,7 +5,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 const Navbar = () => {
   return (
     <nav className="flex flex-row justify-between items-center p-6 rounded-md bg-gray-800 sticky top-0 z-10">
-      <Link href={"/"}>
+      <Link href={"/"} className="hover:underline">
         <h1>
           <span className="text-slate-500">Nextjs</span> &{" "}
           <span className="text-green-400">MongoDB</span>

@@ -48,7 +48,9 @@ const Blog = () => {
               </Link>
             </div>
           </div>
-          <span className="text-sm font-thin">{b.content}</span>
+          <span className="text-xs text-gray-400 md:text-sm font-thin">
+            {b.content}
+          </span>
         </div>
       ))}
     </>

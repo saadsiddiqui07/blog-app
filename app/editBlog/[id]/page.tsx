@@ -1,26 +1,25 @@
-const EditBlog = () => {
-  return (
-    <div className="mt-10">
-      <h1>Edit blog</h1>
-      <form>
-        <input
-          className="bg-gray-800 outline-0 border-none w-[100%] p-2 mb-2 rounded-md"
-          placeholder="Enter title"
-        />
-        <textarea
-          className="bg-gray-800 outline-0 border-none w-[100%] p-2 rounded-md"
-          placeholder="Write something you want to share ..."
-          rows={2}
-        />
-        <button
-          type="submit"
-          className="bg-teal-500 hover:bg-teal-700 p-2 rounded-md w-[30%]"
-        >
-          Update
-        </button>
-      </form>
-    </div>
-  );
+import EditForm from "@/app/components/EditForm";
+
+const getBlogDetails = async (id: string) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/blogs/${id}`, {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch topic");
+    }
+
+    return response.json();
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export default EditBlog;
+export default async function EditBlog({ params }: any) {
+  const { id } = params;
+  const { blog } = await getBlogDetails(id);
+  const { title, content } = blog;
+
+  return <EditForm id={id} title={title} content={content} />;
+}
