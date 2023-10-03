@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "date-fns": "^2.30.0",
     "mongoose": "^7.5.3",
     "next": "latest",
     "react": "latest",
