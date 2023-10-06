@@ -8,7 +8,7 @@ export interface BlogProps {
   updatedAt: string;
 }
 
-const MONGODB_URI = process.env.MONGODB_URI!;
+const MONGODB_URI = process.env.NEXT_PUBLIC_MONGODB_URI!;
 
 const dbConnect = async () => {
   try {
